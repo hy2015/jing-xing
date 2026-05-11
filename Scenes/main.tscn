@@ -1,0 +1,49 @@
+[gd_scene load_steps=20 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Level/forest_level_builder.gd" id="1"]
+[ext_resource type="Script" path="res://Scripts/Core/camera_follow.gd" id="2"]
+[ext_resource type="PackedScene" path="res://Prefabs/platform.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://Prefabs/hero.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://Prefabs/chameleon.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://Prefabs/topology.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://Prefabs/ginseng.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://Prefabs/beetle.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://Prefabs/bee.tscn" id="9"]
+[ext_resource type="PackedScene" path="res://Prefabs/ant.tscn" id="10"]
+[ext_resource type="PackedScene" path="res://Prefabs/spider.tscn" id="11"]
+[ext_resource type="PackedScene" path="res://Prefabs/gem.tscn" id="12"]
+[ext_resource type="PackedScene" path="res://Prefabs/heart.tscn" id="13"]
+[ext_resource type="PackedScene" path="res://Prefabs/key.tscn" id="14"]
+[ext_resource type="PackedScene" path="res://Prefabs/breakable_block.tscn" id="15"]
+[ext_resource type="PackedScene" path="res://Prefabs/thorns.tscn" id="16"]
+[ext_resource type="PackedScene" path="res://Prefabs/switch.tscn" id="17"]
+[ext_resource type="PackedScene" path="res://Prefabs/gate.tscn" id="18"]
+[ext_resource type="Script" path="res://Scripts/UI/ui_manager.gd" id="19"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1")
+platform_scene = ExtResource("3")
+hero_scene = ExtResource("4")
+chameleon_scene = ExtResource("5")
+topology_scene = ExtResource("6")
+ginseng_scene = ExtResource("7")
+beetle_scene = ExtResource("8")
+bee_scene = ExtResource("9")
+ant_scene = ExtResource("10")
+spider_scene = ExtResource("11")
+gem_scene = ExtResource("12")
+heart_scene = ExtResource("13")
+key_scene = ExtResource("14")
+breakable_block_scene = ExtResource("15")
+thorns_scene = ExtResource("16")
+switch_scene = ExtResource("17")
+gate_scene = ExtResource("18")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, 0)
+zoom = Vector2(27, 27)
+script = ExtResource("2")
+smooth_speed = 5.0
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+script = ExtResource("19")

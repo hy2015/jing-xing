@@ -1,0 +1,306 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/main_menu.gd" id="1"]
+[ext_resource type="Script" path="res://Scripts/UI/chameleon_sprite.gd" id="2"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/topology_monster.jpg" id="3"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/topology_mobius.jpg" id="4"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/topology_sphere.jpg" id="5"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/topology_torus.jpg" id="6"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/topology_torus2.jpg" id="7"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/topology_torus3.jpg" id="8"]
+[ext_resource type="PackedScene" path="res://Scenes/settings_panel.tscn" id="9"]
+[ext_resource type="AudioStreamWAV" path="res://Assets/Audio/bgm_warm.wav" id="10"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/ginseng_monster.jpg" id="11"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/ginseng_functional.jpg" id="12"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/main_menu_bg.jpg" id="13"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_login"]
+bg_color = Color(0.18, 0.55, 0.34, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 6
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exit"]
+bg_color = Color(0.65, 0.22, 0.22, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 6
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.12, 0.15, 0.25, 0.8)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.3, 0.4, 0.6, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings"]
+bg_color = Color(0.15, 0.18, 0.3, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="BGColor" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="BGParticles" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.12, 0.22, 0.6)
+
+[node name="BG" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TopSpacer" type="Control" parent="BG"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 80)
+size_flags_vertical = 3
+
+[node name="TitleLabel" type="Label" parent="BG"]
+layout_mode = 2
+text = "璟星"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 0.85, 0.15, 1)
+theme_override_font_sizes/font_size = 80
+
+[node name="SubtitleLabel" type="Label" parent="BG"]
+layout_mode = 2
+text = "Hanché Hero"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.6, 0.7, 0.9, 0.8)
+theme_override_font_sizes/font_size = 48
+
+[node name="VersionLabel" type="Label" parent="BG"]
+layout_mode = 2
+text = "v0.1.0"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.5, 0.5, 0.6, 0.6)
+theme_override_font_sizes/font_size = 28
+
+[node name="MiddleSpacer" type="Control" parent="BG"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 50)
+
+[node name="Companions" type="HBoxContainer" parent="BG"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 60
+
+[node name="ChameleonCard" type="PanelContainer" parent="BG/Companions"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 400)
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="ChameleonContent" type="VBoxContainer" parent="BG/Companions/ChameleonCard"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ChameleonName" type="Label" parent="BG/Companions/ChameleonCard/ChameleonContent"]
+layout_mode = 2
+text = "龙龙"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.4, 0.8, 1.0, 1)
+theme_override_font_sizes/font_size = 48
+
+[node name="ChameleonSprite" type="Control" parent="BG/Companions/ChameleonCard/ChameleonContent"]
+layout_mode = 2
+custom_minimum_size = Vector2(240, 240)
+script = ExtResource("2")
+
+[node name="Background" type="TextureRect" parent="BG/Companions/ChameleonCard/ChameleonContent/ChameleonSprite"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="DragonBody" type="TextureRect" parent="BG/Companions/ChameleonCard/ChameleonContent/ChameleonSprite"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="AbilityLabel" type="Label" parent="BG/Companions/ChameleonCard/ChameleonContent"]
+layout_mode = 2
+text = "红色 - 巨力"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 0.9)
+theme_override_font_sizes/font_size = 22
+
+[node name="TopologyCard" type="PanelContainer" parent="BG/Companions"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 400)
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="TopologyContent" type="VBoxContainer" parent="BG/Companions/TopologyCard"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TopologyName" type="Label" parent="BG/Companions/TopologyCard/TopologyContent"]
+layout_mode = 2
+text = "软软"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.8, 0.5, 1.0, 1)
+theme_override_font_sizes/font_size = 48
+
+[node name="TopologySprite" type="Control" parent="BG/Companions/TopologyCard/TopologyContent"]
+layout_mode = 2
+custom_minimum_size = Vector2(240, 240)
+
+[node name="TopologySpriteImg" type="TextureRect" parent="BG/Companions/TopologyCard/TopologyContent/TopologySprite"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+texture = ExtResource("3")
+
+[node name="TopologyAbilityLabel" type="Label" parent="BG/Companions/TopologyCard/TopologyContent"]
+layout_mode = 2
+text = "球"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 0.9)
+theme_override_font_sizes/font_size = 22
+
+[node name="GinsengCard" type="PanelContainer" parent="BG/Companions"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 400)
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="GinsengContent" type="VBoxContainer" parent="BG/Companions/GinsengCard"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="GinsengName" type="Label" parent="BG/Companions/GinsengCard/GinsengContent"]
+layout_mode = 2
+text = "怪怪"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.4, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 48
+
+[node name="GinsengSprite" type="Control" parent="BG/Companions/GinsengCard/GinsengContent"]
+layout_mode = 2
+custom_minimum_size = Vector2(240, 240)
+
+[node name="GinsengSpriteImg" type="TextureRect" parent="BG/Companions/GinsengCard/GinsengContent/GinsengSprite"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+texture = ExtResource("11")
+
+[node name="GinsengAbilityLabel" type="Label" parent="BG/Companions/GinsengCard/GinsengContent"]
+layout_mode = 2
+text = "微积分"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 0.9)
+theme_override_font_sizes/font_size = 22
+
+[node name="BottomSpacer" type="Control" parent="BG"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 60)
+
+[node name="Buttons" type="HBoxContainer" parent="BG"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 80
+
+[node name="LoginButton" type="Button" parent="BG/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(440, 110)
+theme_override_styles/normal = SubResource("StyleBoxFlat_login")
+theme_override_font_sizes/font_size = 40
+text = "开始冒险"
+
+[node name="ExitButton" type="Button" parent="BG/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(440, 110)
+theme_override_styles/normal = SubResource("StyleBoxFlat_exit")
+theme_override_font_sizes/font_size = 40
+text = "退出游戏"
+
+[node name="FooterSpacer" type="Control" parent="BG"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 100)
+size_flags_vertical = 3
+
+[node name="Footer" type="Label" parent="BG"]
+layout_mode = 2
+text = "按 Enter 或点击按钮开始游戏"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.5, 0.5, 0.6, 0.5)
+theme_override_font_sizes/font_size = 28
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 90.0
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_settings")
+theme_override_font_sizes/font_size = 48
+text = "⚙"
+
+[node name="SettingsPanel" parent="." instance=ExtResource("9")]
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10")
+autoplay = true
